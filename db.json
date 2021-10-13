@@ -1,3 +1,22 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "text": "aas",
+      "day": "assas",
+      "reminder": false,
+      "id": 1
+    },
+    {
+      "text": "aaa",
+      "day": "ddfff",
+      "reminder": false,
+      "id": 2
+    },
+    {
+      "text": "pepe",
+      "day": "1st day",
+      "reminder": false,
+      "id": 3
+    }
+  ]
 }

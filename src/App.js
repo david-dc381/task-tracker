@@ -21,10 +21,17 @@ function App() {
   }, [])
 
  
-  // Fetch Tasks, esperamos una respuesta de el servidor json
+  // Fetch Tasks, esperamos una respuesta de el servidor json. Obtenemos todos los tasks
   const fetchTasks = async () => {
     const res = await fetch('http://localhost:5000/tasks');
     
+    const data = await res.json();
+    return data;
+  }
+
+  // Obtenemos solo un task especifíco
+  const fetchTask = async (id) => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`);
     const data = await res.json();
     return data;
   }
@@ -55,11 +62,39 @@ function App() {
       method: "DELETE",
     });
 
-    // console.log('deleted', id)
-
     // El id de una task que coincida con la lista de task, ese se eliminay qel que no se queda, según la condición del filter 
     setTasks(tasks.filter( (task) => task.id !== id) );
   }
+
+  // Para cambiar el toggle
+  const toggleReminder = async (id) => {
+    // obtenemos el id especifíco de el json
+    const taskToToggle = await fetchTask(id);
+
+    // actualizamos el task, con su reminder true o false
+    const updateTask = {
+      ...taskToToggle,
+      reminder: !taskToToggle.reminder
+    }
+
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(updateTask),
+    });
+
+    const data = await res.json();
+
+    // Cambiamos el estado de el reminder
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: data.reminder }
+        : task
+      )
+    );
+  };
 
   return (
     <div className="container">
@@ -78,6 +113,7 @@ function App() {
         <Tasks 
           tasks={tasks} 
           onDelete={deleteTask}
+          onToggle={toggleReminder}
         />
       ): (
         "No Tasks to Show"

@@ -5,13 +5,13 @@ const Task = ({ task, onDelete, onToggle }) => {
   return (
     <div
       // si el reminder es true cambia de color
-      className={`task ${task.remider ? "reminder" : ""}`}
+      className={`task ${task.reminder ? 'reminder' : ''}`}
       onDoubleClick={() => onToggle(task.id)}
     >
       <h3>
         {task.text}
         <BsXCircleFill
-         style={{ color: "red" }} 
+         style={{ color: 'red', cursor: 'pointer' }} 
          onClick={() => onDelete(task.id)}
         />
       </h3>
