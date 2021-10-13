@@ -34,7 +34,7 @@ function App() {
 
   // Obtenemos solo un task especifíco
   const fetchTask = async (id) => {
-    const res = await fetch(`https://app-task-tracker.herokuapp.com/${id}`);
+    const res = await fetch(`https://app-task-tracker.herokuapp.com/tasks/${id}`);
     const data = await res.json();
     return data;
   }
