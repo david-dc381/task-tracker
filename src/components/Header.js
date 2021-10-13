@@ -1,17 +1,23 @@
 import PropType from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './Button';
 
 const Header = ({ title, onAdd , showAdd}) => {
+  const location = useLocation();
   return (
-    <header>
-      <h1 className="header">{title}</h1>
+    <header className="card-title d-flex justify-content-between">
+      <h1>{title}</h1>
 
-      {/* onAdd, lo usamos para mostrar el form de registro */}
-      <Button
-        buttonOpenClose={onAdd}
-        color={showAdd ? "red" : "green"}
-        text={showAdd ? "Close" : "Add Task"}
-      />
+      {/* Si estamos en la ruta principal se muestra el btn */}
+      {location.pathname === "/" && (
+        /* onAdd, lo usamos para mostrar el form de registro */
+        <Button
+          buttonOpenClose={onAdd}
+          color={showAdd ? "#fb2d2d" : "#05bf05"}
+          text={showAdd ? "Close" : "Add Task"}
+        />
+      )}
     </header>
   );
 }

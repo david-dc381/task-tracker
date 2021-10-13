@@ -1,4 +1,6 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const AddTask = ({ onAdd }) => {
 
@@ -27,37 +29,42 @@ const AddTask = ({ onAdd }) => {
   }
 
   return (
-    <form className="add-form" onSubmit={onSubmit}>
-      <div className="form-control">
-        <label>Task</label>
+    <form className="mb-5" onSubmit={onSubmit}>
+      <div className="mt-4">
+        <label className="fw-bold mb-1">Task</label>
         <input
+          className="form-control"
           type="text"
           placeholder="Add Task"
           value={text}
-          onChange={ (e) => setText(e.target.value) }
+          onChange={(e) => setText(e.target.value)}
         />
       </div>
 
-      <div className="form-control">
-        <label>Day & Time</label>
-        <input 
-          type="text" 
-          placeholder="Add Day & Time" 
+      <div className="mt-4">
+        <label className="fw-bold mb-1">Day & Time</label>
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Add Day & Time"
           value={day}
-          onChange={ (e)=> setDay(e.target.value) }
+          onChange={(e) => setDay(e.target.value)}
         />
       </div>
 
-      <div className="form-control form-control-check">
-        <label>Set Reminder</label>
-        <input 
+      <div className="mt-4">
+        <label className="label-reminder fw-bold">Set Reminder</label>
+        <input
+          className="form-check-input"
           type="checkbox"
           checked={reminder}
           value={reminder}
-          onChange={ (e) => setReminder(e.currentTarget.checked) }
+          onChange={(e) => setReminder(e.currentTarget.checked)}
         />
       </div>
-      <input type="submit" value="Save Task" className="btn btn-block"/>
+      <div className="d-grid gap-2 mt-5">
+        <input type="submit" value="Save Task" className="btn btn-primary" />
+      </div>
     </form>
   );
 }

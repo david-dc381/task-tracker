@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from './components/Header';
 import AddTask from './components/AddTask';
 import Tasks from './components/Tasks';
+import Footer from './components/Footer';
+import About from './components/About';
 
 function App() {
   // Para mostrar el formulario, creamos su estado
@@ -97,30 +100,43 @@ function App() {
   };
 
   return (
-    <div className="container">
-        
-      <Header
-      // pasamos a true el showAddTask
-        onAdd={() => setShowAddTask(!showAddTask)}
-        // Cambiamos el estado de el button de 'Add Task' a 'Close' y sus colores
-        showAdd={showAddTask}
-      />
-
-      {/* Si es true 'showAddTask', nos muestra el form */}
-      { showAddTask && <AddTask onAdd={addTask} /> }
-
-      {tasks.length > 0 ? (
-        <Tasks 
-          tasks={tasks} 
-          onDelete={deleteTask}
-          onToggle={toggleReminder}
+    <Router>
+      <div className="container col-lg-6 px-5">
+        <Header
+          // pasamos a true el showAddTask
+          onAdd={() => setShowAddTask(!showAddTask)}
+          // Cambiamos el estado de el button de 'Add Task' a 'Close' y sus colores
+          showAdd={showAddTask}
         />
-      ): (
-        "No Tasks to Show"
-      )}
-      
-    </div>
-    
+
+        {/* Todo esto se mostrará en la ruta principal */}
+        <Route 
+          path="/"
+          exact
+          render={ (props) => (
+            <>
+              {/* Si es true 'showAddTask', nos muestra el form */}
+              {showAddTask && <AddTask onAdd={addTask} />}
+
+              {tasks.length > 0 ? (
+                <Tasks
+                  tasks={tasks}
+                  onDelete={deleteTask}
+                  onToggle={toggleReminder}
+                />
+              ) : (
+                <h3 style={{ 'font-weight': 'bold' }}>No Tasks To Show</h3>
+              )}
+            </>
+          ) }
+        />
+
+        {/* En la ruta /about se mostrará el componente About */}
+        <Route path="/about" component={About}/>
+        {/* Mostramos el footer */}
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

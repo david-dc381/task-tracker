@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(to left, #1dfda0, #5a30ff );
 }
 
 code {
@@ -26,9 +28,19 @@ code {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  background-color: #fff;
+}
+
+.card-title {
+  color: rgb(68 68 68);
+  border-bottom: 1px solid rgb(185 180 180);
+  margin-bottom: 2rem !important;
+  padding-bottom: 1rem;
+}
+.label-reminder {
+  margin-right: 1rem;
 }
 
 .header {
@@ -41,14 +53,14 @@ code {
 .btn {
   display: inline-block;
   background: #000;
-  color: #fff;
+  color: #fff !important;
   border: none;
-  padding: 10px 20px;
+  padding: 0px 20px;
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 10px;
   font-family: inherit;
 }
 
@@ -68,33 +80,35 @@ code {
 .task {
   background: #f4f4f4;
   margin: 5px;
-  padding: 10px 20px;
+  padding: 10px 20px 1px 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .task.reminder {
-  border-left: 5px solid green;
+  border-left: 7px solid rgb(5, 191, 5);
 }
 
 .task h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 1.3rem;
 }
 
 .add-form {
   margin-bottom: 40px;
 }
 
-.form-control {
+.form-control-2 {
   margin: 20px 0;
 }
 
-.form-control label {
+.form-control-2 label {
   display: block;
 }
 
-.form-control input {
+.form-control-2 input {
   width: 100%;
   height: 40px;
   margin: 5px;
@@ -102,17 +116,17 @@ code {
   font-size: 17px;
 }
 
-.form-control-check {
+.form-control-2-check {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.form-control-check label {
+.form-control-2-check label {
   flex: 1;
 }
 
-.form-control-check input {
+.form-control-2-check input {
   flex: 2;
   height: 20px;
 }
