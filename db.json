@@ -1,22 +1,5 @@
 {
   "tasks": [
-    {
-      "text": "Cita con el dentista",
-      "day": "16 de Octubre",
-      "reminder": false,
-      "id": 1
-    },
-    {
-      "text": "Estudiar React",
-      "day": "10 de Octubre",
-      "reminder": true,
-      "id": 2
-    },
-    {
-      "text": "Ir por Anticuchos",
-      "day": "17 de Octubre",
-      "reminder": false,
-      "id": 3
-    }
+
   ]
 }
