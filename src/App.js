@@ -26,7 +26,7 @@ function App() {
  
   // Fetch Tasks, esperamos una respuesta de el servidor json. Obtenemos todos los tasks
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch("https://app-task-tracker.herokuapp.com/tasks");
     
     const data = await res.json();
     return data;
@@ -34,7 +34,7 @@ function App() {
 
   // Obtenemos solo un task especifíco
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+    const res = await fetch(`https://app-task-tracker.herokuapp.com/tasks/${id}`);
     const data = await res.json();
     return data;
   }
@@ -42,7 +42,7 @@ function App() {
 
   // Para añadir una nueva task
   const addTask = async(task) => {
-    const res = await fetch(`http://localhost:5000/tasks`, {
+    const res = await fetch(`https://app-task-tracker.herokuapp.com/tasks`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -60,7 +60,7 @@ function App() {
 
   // Para eliminar un task
   const deleteTask = async(id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {
+    await fetch(`https://app-task-tracker.herokuapp.com/tasks/${id}`, {
       method: "DELETE",
     });
 
@@ -80,7 +80,7 @@ function App() {
     }
 
     const res = await fetch(
-      `http://localhost:5000/tasks/${id}`,
+      `https://app-task-tracker.herokuapp.com/tasks/${id}`,
       {
         method: "PUT",
         headers: {
