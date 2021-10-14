@@ -14,7 +14,7 @@ const Header = ({ title, onAdd , showAdd}) => {
         /* onAdd, lo usamos para mostrar el form de registro */
         <Button
           buttonOpenClose={onAdd}
-          color={showAdd ? "#fb2d2d" : "#05bf05"}
+          className={showAdd ? "btn btn-danger" : "btn btn-success"}
           text={showAdd ? "Close" : "Add Task"}
         />
       )}
