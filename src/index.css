@@ -51,9 +51,13 @@ code {
 }
 
 .btn-change {
+  display: inline-block;
   font-size: .9rem;
   padding: 0 1em;
   color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 /* .btn {
