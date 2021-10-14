@@ -5,7 +5,7 @@ const Button = ({ text, color, buttonOpenClose }) => {
     <button
       onClick={buttonOpenClose}
       style={{ backgroundColor: color }}
-      className="btn"
+      className="btn-change"
     >
       {text}
     </button>

@@ -50,6 +50,12 @@ code {
   margin-bottom: 20px;
 }
 
+.btn-change {
+  font-size: .9rem;
+  padding: 0 1em;
+  color: #fff;
+}
+
 /* .btn {
   display: inline-block;
   background: #000;
